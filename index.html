@@ -87,6 +87,30 @@ color:white;
 text-align:center;
 padding:20px;
 }
+
+.notification{
+margin-top:15px;
+padding:10px;
+border-radius:5px;
+display:none;
+}
+
+.error{
+background:#ffdddd;
+color:#a00;
+border:1px solid #a00;
+}
+
+.success{
+background:#ddffdd;
+color:#060;
+border:1px solid #060;
+}
+
+input{
+padding:8px;
+width:200px;
+}
 </style>
 
 <!-- Yandex.Metrika counter -->
@@ -139,7 +163,7 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 <section class="hero" id="home">
 <h2>Лучшие товары для тестирования</h2>
 <p>Попробуйте найти нужный товар и оформить заказ</p>
-<button>Начать покупки</button>
+<button onclick="scrollToProducts()">Начать покупки</button>
 </section>
 
 <section class="products" id="products">
@@ -148,24 +172,24 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 <img src="https://via.placeholder.com/200">
 <h3>Товар 1</h3>
 <p>Описание товара</p>
-<button>Купить</button>
-<button>Подробнее</button>
+<button onclick="buyProduct('Товар 1')">Купить</button>
+<button onclick="moreInfo()">Подробнее</button>
 </div>
 
 <div class="card">
 <img src="https://via.placeholder.com/200">
 <h3>Товар 2</h3>
 <p>Описание товара</p>
-<button>Купить</button>
-<button>Подробнее</button>
+<button onclick="buyProduct('Товар 2')">Купить</button>
+<button onclick="moreInfo()">Подробнее</button>
 </div>
 
 <div class="card">
 <img src="https://via.placeholder.com/200">
 <h3>Товар 3</h3>
 <p>Описание товара</p>
-<button>Купить</button>
-<button>Подробнее</button>
+<button onclick="buyProduct('Товар 3')">Купить</button>
+<button onclick="moreInfo()">Подробнее</button>
 </div>
 
 </section>
@@ -181,17 +205,70 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 <section class="contact" id="contact">
 <h2>Связаться с нами</h2>
 
-<form>
-<input type="text" placeholder="Ваше имя"><br><br>
-<input type="email" placeholder="Email"><br><br>
+<form id="contactForm">
+
+<input id="name" type="text" placeholder="Ваше имя"><br><br>
+
+<input id="email" type="email" placeholder="Email"><br><br>
+
 <button type="submit">Отправить</button>
+
 </form>
+
+<div id="formMessage" class="notification"></div>
 
 </section>
 
 <footer>
 <p>2026 UX Test Lab</p>
 </footer>
+
+<script>
+
+function scrollToProducts(){
+document.getElementById("products").scrollIntoView({behavior:"smooth"});
+}
+
+function buyProduct(name){
+alert("Товар \"" + name + "\" добавлен в корзину!");
+}
+
+function moreInfo(){
+alert("Здесь могла быть подробная информация о товаре.");
+}
+
+document.getElementById("contactForm").addEventListener("submit", function(e){
+
+e.preventDefault();
+
+let name = document.getElementById("name").value.trim();
+let email = document.getElementById("email").value.trim();
+let messageBox = document.getElementById("formMessage");
+
+messageBox.style.display = "block";
+
+if(name === ""){
+messageBox.className = "notification error";
+messageBox.innerText = "Ошибка: введите ваше имя";
+return;
+}
+
+let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+if(!emailPattern.test(email)){
+messageBox.className = "notification error";
+messageBox.innerText = "Ошибка: введите корректный email";
+return;
+}
+
+messageBox.className = "notification success";
+messageBox.innerText = "Сообщение успешно отправлено!";
+
+document.getElementById("contactForm").reset();
+
+});
+
+</script>
 
 </body>
 </html>
