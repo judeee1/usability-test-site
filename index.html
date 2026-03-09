@@ -2,54 +2,196 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>Mini UX Test Site</title>
+<title>UX Test Shop</title>
+
+<style>
+body{
+font-family: Arial;
+margin:0;
+background:#f4f4f4;
+}
+
+header{
+background:#333;
+color:white;
+padding:20px;
+text-align:center;
+}
+
+nav{
+background:#555;
+padding:10px;
+text-align:center;
+}
+
+nav a{
+color:white;
+margin:0 15px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.hero{
+background:#ddd;
+padding:60px;
+text-align:center;
+}
+
+.hero button{
+padding:15px 25px;
+font-size:16px;
+margin-top:20px;
+cursor:pointer;
+}
+
+.products{
+display:flex;
+justify-content:center;
+gap:30px;
+padding:40px;
+}
+
+.card{
+background:white;
+padding:20px;
+width:200px;
+border-radius:8px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+.card img{
+width:100%;
+}
+
+.card button{
+margin-top:10px;
+padding:10px;
+cursor:pointer;
+}
+
+.about{
+padding:40px;
+text-align:center;
+background:#eee;
+}
+
+.contact{
+padding:40px;
+text-align:center;
+}
+
+footer{
+background:#333;
+color:white;
+text-align:center;
+padding:20px;
+}
+</style>
 
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=107220406', 'ym');
+(function(m,e,t,r,i,k,a){
+m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+})(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=107220337', 'ym');
 
-    ym(107220406, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+ym(107220337, 'init', {
+clickmap:true,
+trackLinks:true,
+accurateTrackBounce:true,
+webvisor:true
+});
 </script>
-<noscript><div><img src="https://mc.yandex.ru/watch/107220406" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+<noscript>
+<div><img src="https://mc.yandex.ru/watch/107220337" style="position:absolute; left:-9999px;" alt="" /></div>
+</noscript>
 <!-- /Yandex.Metrika counter -->
 
-
-
- <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "vsza2rqjc5");
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+(function(c,l,a,r,i,t,y){
+c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "vsza2rqjc5");
 </script>
-<h1>Тестовый сайт для юзабилити анализа</h1>
+
+</head>
+
+<body>
+
+<header>
+<h1>UX Test Shop</h1>
+<p>Тестовый сайт для лабораторной по юзабилити</p>
+</header>
 
 <nav>
-<a href="#">Главная</a> |
-<a href="#">О нас</a> |
-<a href="#">Контакты</a>
+<a href="#home">Главная</a>
+<a href="#products">Товары</a>
+<a href="#about">О нас</a>
+<a href="#contact">Контакты</a>
 </nav>
 
-<hr>
+<section class="hero" id="home">
+<h2>Лучшие товары для тестирования</h2>
+<p>Попробуйте найти нужный товар и оформить заказ</p>
+<button>Начать покупки</button>
+</section>
 
-<h2>Наши продукты</h2>
+<section class="products" id="products">
 
-<button>Купить товар 1</button>
-<button>Купить товар 2</button>
-<button>Купить товар 3</button>
+<div class="card">
+<img src="https://via.placeholder.com/200">
+<h3>Товар 1</h3>
+<p>Описание товара</p>
+<button>Купить</button>
+<button>Подробнее</button>
+</div>
 
+<div class="card">
+<img src="https://via.placeholder.com/200">
+<h3>Товар 2</h3>
+<p>Описание товара</p>
+<button>Купить</button>
+<button>Подробнее</button>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/200">
+<h3>Товар 3</h3>
+<p>Описание товара</p>
+<button>Купить</button>
+<button>Подробнее</button>
+</div>
+
+</section>
+
+<section class="about" id="about">
+<h2>О компании</h2>
 <p>
-Это тестовый сайт для лабораторной работы по юзабилити тестированию.
+Этот сайт создан для лабораторной работы по юзабилити тестированию.
+Пользователям предлагается найти товар, нажать кнопки и изучить интерфейс.
 </p>
+</section>
 
-<a href="#">Подробнее</a>
+<section class="contact" id="contact">
+<h2>Связаться с нами</h2>
+
+<form>
+<input type="text" placeholder="Ваше имя"><br><br>
+<input type="email" placeholder="Email"><br><br>
+<button type="submit">Отправить</button>
+</form>
+
+</section>
+
+<footer>
+<p>2026 UX Test Lab</p>
+</footer>
 
 </body>
-
 </html>
-
